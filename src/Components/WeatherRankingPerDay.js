@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 const WeatherRankingPerDay = () => {
     return (
-        <div>Weather ranking</div>
+        <div>Weather ranking per day</div>
     )
 }
 

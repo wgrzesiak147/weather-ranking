@@ -1,9 +1,26 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux'
+import {changeText} from '../actions/index'
 
-const WeatherRanking = () => {
+const WeatherRanking = ({text, changeText}) => {
     return (
-        <div>Weather ranking</div>
+        <div>
+            <div>Weather ranking {text}</div>
+            <button onClick={changeText.bind(this, "123")}>Change text</button>
+        </div>
     )
 }
 
-export default WeatherRanking;
+const mapDispatchToProps = dispatch => {
+    return {
+        changeText: text => {
+            dispatch(changeText(text))
+        }
+    }
+}
+
+const mapStateToProps = state => {
+    return {text: state.text}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(WeatherRanking);
