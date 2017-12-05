@@ -1,9 +1,10 @@
 function weatherRanking(state = [], action) {
+    console.log("Action: ", action)
     switch (action.type) {
-        case 'ADD_TEXT':
+        case 'SET_WEATHER_INFOS':
             return ({
                 ...state,
-                text: action.text
+                weatherInfos: action.weatherInfos
             })
         default:
             return state

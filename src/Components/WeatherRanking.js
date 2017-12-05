@@ -1,26 +1,39 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
-import {changeText} from '../actions/index'
+import {loadWeatherInfo} from '../actions/index'
+import WeatherRankingPerDay from './WeatherRankingPerDay'
 
-const WeatherRanking = ({text, changeText}) => {
+const WeatherRanking = ({weatherInfos, loadWeatherInfo}) => {
+
+    const weatherInfosRender = () => {
+        let result = []
+        for (var key in weatherInfos) {
+            result.push(<WeatherRankingPerDay/>)
+        }
+        return result
+    }
+
     return (
         <div>
-            <div>Weather ranking {text}</div>
-            <button onClick={changeText.bind(this, "123")}>Change text</button>
+            <div>Weather ranking</div>
+            <button onClick={loadWeatherInfo}>Load data</button>
+            <div>
+                {weatherInfosRender()}
+            </div>
         </div>
     )
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        changeText: text => {
-            dispatch(changeText(text))
+        loadWeatherInfo: () => {
+            dispatch(loadWeatherInfo())
         }
     }
 }
 
 const mapStateToProps = state => {
-    return {text: state.text}
+    return {weatherInfos: state.weatherInfos}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(WeatherRanking);

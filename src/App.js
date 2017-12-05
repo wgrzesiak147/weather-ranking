@@ -3,11 +3,12 @@ import logo from './logo.svg';
 import './App.css';
 import {Provider} from 'react-redux'
 import WeatherRanking from './components/WeatherRanking'
-import {createStore} from 'redux'
+import {createStore, applyMiddleware} from 'redux'
 import weatherRanking from './reducers/'
 import {defaultState} from './defaultState'
+import thunkMiddleware from 'redux-thunk'
 
-let store = createStore(weatherRanking, defaultState)
+let store = createStore(weatherRanking, defaultState, applyMiddleware(thunkMiddleware))
 
 class App extends Component {
   render() {

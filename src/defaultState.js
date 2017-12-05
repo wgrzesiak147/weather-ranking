@@ -1,5 +1,5 @@
 const defaultState = {
-    text: ""
+    weatherInfos: []
 }
 
 export {defaultState}
