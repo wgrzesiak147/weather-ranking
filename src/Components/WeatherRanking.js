@@ -8,7 +8,7 @@ const WeatherRanking = ({weatherInfos, loadWeatherInfo}) => {
     const weatherInfosRender = () => {
         let result = []
         for (var key in weatherInfos) {
-            result.push(<WeatherRankingPerDay/>)
+            result.push(<WeatherRankingPerDay date={key} weatherInfo={weatherInfos[key]}/>)
         }
         return result
     }
