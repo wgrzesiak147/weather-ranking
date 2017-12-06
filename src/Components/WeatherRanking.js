@@ -4,6 +4,7 @@ import {loadWeatherInfo} from '../actions/index'
 import WeatherRankingPerDay from './WeatherRankingPerDay'
 
 const WeatherRanking = ({weatherInfos, loadWeatherInfo}) => {
+    loadWeatherInfo()
 
     const weatherInfosRender = () => {
         let result = []
@@ -15,8 +16,6 @@ const WeatherRanking = ({weatherInfos, loadWeatherInfo}) => {
 
     return (
         <div>
-            <div>Weather ranking</div>
-            <button onClick={loadWeatherInfo}>Load data</button>
             <div>
                 {weatherInfosRender()}
             </div>
