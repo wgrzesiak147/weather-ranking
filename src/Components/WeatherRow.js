@@ -1,14 +1,13 @@
 import React, {Component} from 'react';
 
 const WeatherRow = ({index, weatherRow}) => {
-    const imageSource = `../img/${weatherRow.weather.icon}.png`
+    const imageSource = `/img/${weatherRow.weather.icon}.png`
     return (
         <tr>
             <td>{(index + 1)}</td>
             <td>{weatherRow.city}</td>
             <td>
-                yo
-                <image src={imageSource}></image>
+                <img src={imageSource}/>
             </td>
             <td>{weatherRow.weather.temp}</td>
             <td>{weatherRow.weather.claudiness}</td>
