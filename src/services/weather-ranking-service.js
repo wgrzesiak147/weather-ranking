@@ -60,7 +60,7 @@ function groupWeatherByDay(data) {
                     conditions: bestConditions,
                     temp: kelvinToCelcius(currentWeather.main.temp),
                     claudiness: currentWeather.clouds["all"],
-                    rain: currentWeather.rain,
+                    rain: getRainValue(currentWeather.rain),
                     wind: currentWeather.wind.speed,
                     icon: currentWeather.weather[0].icon
                 })
@@ -73,7 +73,7 @@ function groupWeatherByDay(data) {
                     conditions: bestConditions,
                     temp: kelvinToCelcius(currentWeather.main.temp),
                     claudiness: currentWeather.clouds["all"],
-                    rain: currentWeather.rain,
+                    rain: getRainValue(currentWeather.rain),
                     wind: currentWeather.wind.speed,
                     icon: currentWeather.weather[0].icon
                 }
@@ -81,6 +81,13 @@ function groupWeatherByDay(data) {
         }
     }
     return results;
+}
+
+function getRainValue(rain) {
+    if (Object.keys(rain).length === 0 && rain.constructor === Object) {
+        return 0;
+    }
+    return rain['3h']
 }
 
 function kelvinToCelcius(kelvins) {
@@ -96,10 +103,10 @@ function gradeWeatherConditions(weather) {
     var claudinessGrade = 0.1 * (gradeClaudiness(weather.clouds));
     var windGrade = 0.1 * (gradeWind(weather.wind));
 
-    if (temperature > bestTemp) 
+    if (temperature < bestTemp) 
         claudinessGrade *= -1;
     
-    if (temperature > bestTemp) 
+    if (temperature < bestTemp) 
         windGrade *= -1;
     
     return round2Decimals(temparaureGrade + rainGrade + claudinessGrade + windGrade);

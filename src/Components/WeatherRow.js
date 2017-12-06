@@ -11,8 +11,7 @@ const WeatherRow = ({index, weatherRow}) => {
             </td>
             <td>{weatherRow.weather.temp}</td>
             <td>{weatherRow.weather.claudiness}</td>
-            <td>{weatherRow.weather.claudiness}</td>
-            {/* {weatherRow.weather.rain} */}
+            <td>{weatherRow.weather.rain}</td>
             <td>{weatherRow.weather.wind}</td>
             <td>{weatherRow.weather.conditions}</td>
         </tr>
