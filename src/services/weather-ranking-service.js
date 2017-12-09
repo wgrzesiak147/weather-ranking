@@ -84,10 +84,12 @@ function groupWeatherByDay(data) {
 }
 
 function getRainValue(rain) {
+    if (rain === undefined) 
+        return 0;
     if (Object.keys(rain).length === 0 && rain.constructor === Object) {
         return 0;
     }
-    return rain['3h']
+    return round2Decimals(rain['3h'])
 }
 
 function kelvinToCelcius(kelvins) {
