@@ -1,11 +1,9 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {connect} from 'react-redux'
 import {loadWeatherInfo} from '../actions/index'
 import WeatherRankingPerDay from './WeatherRankingPerDay'
 
 const WeatherRanking = ({weatherInfos, loadWeatherInfo}) => {
-    loadWeatherInfo()
-
     const weatherInfosRender = () => {
         let result = []
         for (var key in weatherInfos) {

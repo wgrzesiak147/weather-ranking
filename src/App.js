@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {Provider} from 'react-redux'
-import WeatherRanking from './components/WeatherRanking'
+import MainPage from './components/MainPage'
 import {createStore, applyMiddleware} from 'redux'
 import weatherRanking from './reducers/'
 import {defaultState} from './defaultState'
@@ -20,7 +20,7 @@ class App extends Component {
             <h1 className="App-title">Weather ranking</h1>
           </header>
           <p className="App-intro">
-            <WeatherRanking></WeatherRanking>
+            <MainPage></MainPage>
           </p>
         </div>
       </Provider>
