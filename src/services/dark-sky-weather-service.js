@@ -41,6 +41,11 @@ const locations = [
         latitude: 49.948059,
         longitude: 11.57833
     }
+    , {
+        name: "Chuilia",
+        latitude: 39.656578,
+        longitude: -0.890039
+    }
 ]
 
 export async function getWeatherInfos() {

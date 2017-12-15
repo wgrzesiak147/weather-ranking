@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
+import logo from './sun.png';
 import './App.css';
 import {Provider} from 'react-redux'
 import MainPage from './components/MainPage'

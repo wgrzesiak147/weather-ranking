@@ -5,10 +5,10 @@ export function gradeWeatherConditions(weather) {
     var claudinessGrade = 0.1 * (gradeClaudiness(weather.cloudCover));
     var windGrade = 0.1 * (gradeWind(weather.windSpeed));
 
-    if (weather.temperatureHigh < bestTemp) 
+    if (weather.temperatureHigh > bestTemp) 
         claudinessGrade *= -1;
     
-    if (weather.temperatureHigh < bestTemp) 
+    if (weather.temperatureHigh > bestTemp) 
         windGrade *= -1;
     
     var result = temperatureGrade + rainGrade + claudinessGrade + windGrade
@@ -27,10 +27,6 @@ function gradeTemperature(temparaure, bestTemp) {
 }
 
 function gradeRain(rain) {
-    if (rain === undefined) 
-        return 10;
-    if (rain === undefined) 
-        return 10;
     if (rain === 0) 
         return 10;
     if (rain < 0.1) 
@@ -55,15 +51,15 @@ function gradeWind(wind) {
 
 function gradeClaudiness(claudiness) {
 
-    if (claudiness["all"] < 0.1) 
+    if (claudiness < 0.1) 
         return 10;
-    if (claudiness["all"] < 0.2) 
+    if (claudiness < 0.2) 
         return 8;
-    if (claudiness["all"] < 0.4) 
+    if (claudiness < 0.4) 
         return 6;
-    if (claudiness["all"] < 0.6) 
+    if (claudiness < 0.6) 
         return 4;
-    if (claudiness["all"] < 0.8) 
+    if (claudiness < 0.8) 
         return 2;
     return 0;
 }
