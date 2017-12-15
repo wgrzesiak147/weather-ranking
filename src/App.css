@@ -26,3 +26,26 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.weather-info-date {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.weather-info-block {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.weather-info-table {
+  border: 1px solid black;
+  text-align: left;
+}
+
+.weather-info__conditions-low {
+  color: red
+}
+
+.weather-info__conditions-high {
+  color: green
+}

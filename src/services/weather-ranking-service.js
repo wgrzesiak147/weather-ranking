@@ -92,18 +92,14 @@ function getRainValue(rain) {
     return round2Decimals(rain['3h'])
 }
 
-function kelvinToCelcius(kelvins) {
-    return Math.round(kelvins - 273.15);
-}
-
 function gradeWeatherConditions(weather) {
     var bestTemp = 18;
 
-    var temperature = kelvinToCelcius(weather.main.temp);
+    var temperature = kelvinToCelcius(weather.temperatureHigh);
     var temparaureGrade = 0.5 * (gradeTemperature(temperature, bestTemp));
-    var rainGrade = 0.3 * (gradeRain(weather.rain));
-    var claudinessGrade = 0.1 * (gradeClaudiness(weather.clouds));
-    var windGrade = 0.1 * (gradeWind(weather.wind));
+    var rainGrade = 0.3 * (gradeRain(weather.precipIntensityMax));
+    var claudinessGrade = 0.1 * (gradeClaudiness(weather.cloudCover));
+    var windGrade = 0.1 * (gradeWind(weather.windSpeed));
 
     if (temperature < bestTemp) 
         claudinessGrade *= -1;
@@ -154,15 +150,15 @@ function gradeWind(wind) {
 
 function gradeClaudiness(claudiness) {
 
-    if (claudiness["all"] < 10) 
+    if (claudiness["all"] < 0.1) 
         return 10;
-    if (claudiness["all"] < 20) 
+    if (claudiness["all"] < 0.2) 
         return 8;
-    if (claudiness["all"] < 40) 
+    if (claudiness["all"] < 0.4) 
         return 6;
-    if (claudiness["all"] < 60) 
+    if (claudiness["all"] < 0.6) 
         return 4;
-    if (claudiness["all"] < 80) 
+    if (claudiness["all"] < 0.8) 
         return 2;
     return 0;
 }

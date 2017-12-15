@@ -1,13 +1,15 @@
 import axios from 'axios'
-//import DarkSkyApi from 'dark-sky-api'
-import DarkSkyApi from './dark-sky-api-mock'
+import DarkSkyApi from 'dark-sky-api'
+// import DarkSkyApi from './dark-sky-api-mock'
+import {gradeWeatherConditions} from './grading-service'
 
 const weatherApiKey = '14fc255a14e9937aacbb37702bebd03f'
 
 function getWeatherInfo(location) {
     DarkSkyApi.apiKey = weatherApiKey
     DarkSkyApi.proxy = false
-    DarkSkyApi.units = 'si';
+    DarkSkyApi.units = 'si'
+    DarkSkyApi.language = 'pl'
 
     return DarkSkyApi
         .loadForecast({latitude: location.latitude, longitude: location.longitude})
@@ -56,18 +58,30 @@ export async function getWeatherInfos() {
             weatherByDate[currentWeatherInLocation.dateTime._d].push({city: locations[i].name, weather: CreateWeatherViewModel(currentWeatherInLocation)});
         }
     }
-    console.log("Weather by date: ", weatherByDate)
+    SortWeathersByConditions(weatherByDate)
     return weatherByDate;
+}
+
+function SortWeathersByConditions(weatherByDate) {
+    for (var key in weatherByDate) {
+        weatherByDate[key].sort((a, b) => {
+            return b.weather.conditions - a.weather.conditions
+        })
+    }
 }
 
 function CreateWeatherViewModel(weather) {
     var results = {
-        conditions: 5,
-        temp: weather.temperatureHigh,
-        claudiness: weather.cloudCover,
-        rain: weather.precipIntensityMax,
-        wind: weather.windSpeed,
-        icon: 'tmp'
+        conditions: gradeWeatherConditions(weather),
+        temp: round2Decimals(weather.temperatureHigh),
+        claudiness: round2Decimals(weather.cloudCover),
+        rain: round2Decimals(weather.precipIntensityMax),
+        wind: round2Decimals(weather.windSpeed),
+        icon: weather.icon
     }
     return results
+}
+
+function round2Decimals(number) {
+    return Math.round(number * 100) / 100;
 }
