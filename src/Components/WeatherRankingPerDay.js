@@ -24,11 +24,11 @@ const WeatherRankingPerDay = ({date, weatherInfo}) => {
                 <thead>
                     <th></th>
                     <th>City</th>
-                    <th></th>
-                    <th>Temp</th>
-                    <th>Claudiness</th>
-                    <th>Rain</th>
-                    <th>Wind</th>
+                    <th className="weather-info__icon"></th>
+                    <th>Temp [C]</th>
+                    <th>Claudiness [%]</th>
+                    <th>Rain [mm]</th>
+                    <th>Wind [m/s]</th>
                     <th>Conditions</th>
                 </thead>
                 <tbody>

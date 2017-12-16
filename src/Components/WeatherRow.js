@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Skycons from 'react-skycons'
 
 const WeatherRow = ({index, weatherRow}) => {
     const imageSource = `/img/${weatherRow.weather.icon}.png`
@@ -7,9 +8,9 @@ const WeatherRow = ({index, weatherRow}) => {
             <td>{(index + 1)}.</td>
             <td>{weatherRow.city}</td>
             <td>
-                <img src={imageSource}/>
+                <div ><Skycons color='black' icon={weatherRow.weather.icon} autoplay={true}/></div>
             </td>
-            <td>{weatherRow.weather.temp}</td>
+            <td>{weatherRow.weather.temp} </td>
             <td>{weatherRow.weather.claudiness}</td>
             <td>{weatherRow.weather.rain}</td>
             <td>{weatherRow.weather.wind}</td>

@@ -1,25 +1,27 @@
-export const locations = [{
-    name: "Sokoliki",
-    id: "3097599"
-},
-{
-    name: "Jura pólnocna",
-    id: "3080674"
-},
-{
-    name: "Jura Poludniowa",
-    id: "3094802"
-},
-{
-    name: "Frankenjura",
-    id: "2951825"
-},
-{
-    name: "Sulov",
-    id: "3056508"
-},
-{
-    name: "Wroclaw",
-    id: "3081368"
-},
+export const locations = [
+    {
+        name: "Wrocław",
+        latitude: 51.166672,
+        longitude: 16.91667
+    }, {
+        name: "Sokoliki",
+        latitude: 50.87569,
+        longitude: 15.92322
+    }, {
+        name: "Jura północna",
+        latitude: 50.082588,
+        longitude: 19.35199
+    }, {
+        name: "Jura południowa",
+        latitude: 50.212669,
+        longitude: 19.746719
+    }, {
+        name: "Frankenjura (Bayreuth)",
+        latitude: 49.948059,
+        longitude: 11.57833
+    }, {
+        name: "Chuilia",
+        latitude: 39.656578,
+        longitude: -0.890039
+    }
 ]

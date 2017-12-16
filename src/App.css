@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family: Arial, Helvetica, sans-serif
 }
 
 .App-logo {
@@ -16,6 +17,7 @@
 
 .App-title {
   font-size: 1.5em;
+  font-family: Helvetiva, sans-serif
 }
 
 .App-intro {
@@ -35,6 +37,8 @@
 .weather-info-block {
   padding: 10px;
   margin-bottom: 10px;
+  width: 50%;
+  margin: auto;
 }
 
 .weather-info-table {
@@ -48,4 +52,7 @@
 
 .weather-info__conditions-high {
   color: green
+}
+.weather-info__icon {
+ width: 50px;
 }

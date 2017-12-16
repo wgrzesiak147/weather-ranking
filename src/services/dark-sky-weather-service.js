@@ -2,6 +2,7 @@ import axios from 'axios'
 import DarkSkyApi from 'dark-sky-api'
 // import DarkSkyApi from './dark-sky-api-mock'
 import {gradeWeatherConditions} from './grading-service'
+import {locations} from './locations'
 
 const weatherApiKey = '14fc255a14e9937aacbb37702bebd03f'
 
@@ -18,35 +19,6 @@ function getWeatherInfo(location) {
             return result
         });
 }
-
-const locations = [
-    {
-        name: "Wroclaw",
-        latitude: 51.166672,
-        longitude: 16.91667
-    }, {
-        name: "Sokoliki (Janowice wlk)",
-        latitude: 50.87569,
-        longitude: 15.92322
-    }, {
-        name: "Jura pln (Zarki)",
-        latitude: 50.082588,
-        longitude: 19.35199
-    }, {
-        name: "Jura pld (Jerzmanowice)",
-        latitude: 50.212669,
-        longitude: 19.746719
-    }, {
-        name: "Frankenjura (Bayreuth)",
-        latitude: 49.948059,
-        longitude: 11.57833
-    }
-    , {
-        name: "Chuilia",
-        latitude: 39.656578,
-        longitude: -0.890039
-    }
-]
 
 export async function getWeatherInfos() {
     var weatherByDate = {}
@@ -76,13 +48,16 @@ function SortWeathersByConditions(weatherByDate) {
 }
 
 function CreateWeatherViewModel(weather) {
+    var icon = weather
+        .icon
+        .replaceAll("-", "_");
     var results = {
         conditions: gradeWeatherConditions(weather),
         temp: round2Decimals(weather.temperatureHigh),
-        claudiness: round2Decimals(weather.cloudCover),
+        claudiness: round2Decimals(weather.cloudCover * 100),
         rain: round2Decimals(weather.precipIntensityMax),
         wind: round2Decimals(weather.windSpeed),
-        icon: weather.icon
+        icon: icon.toUpperCase()
     }
     return results
 }
@@ -90,3 +65,8 @@ function CreateWeatherViewModel(weather) {
 function round2Decimals(number) {
     return Math.round(number * 100) / 100;
 }
+
+String.prototype.replaceAll = function (search, replacement) {
+    var target = this;
+    return target.replace(new RegExp(search, 'g'), replacement);
+};
