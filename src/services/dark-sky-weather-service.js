@@ -15,7 +15,6 @@ function getWeatherInfo(location) {
     return DarkSkyApi
         .loadForecast({latitude: location.latitude, longitude: location.longitude})
         .then(result => {
-            console.log("results: ", result);
             return result
         });
 }
