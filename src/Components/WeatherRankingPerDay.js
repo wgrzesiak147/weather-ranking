@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import WeatheRow from './WeatherRow'
+import {Table} from 'react-bootstrap'
 
 var days = [
     'Sunday',
@@ -20,7 +21,7 @@ const WeatherRankingPerDay = ({date, weatherInfo}) => {
     return (
         <div className="weather-info-block">
             <div className="weather-info-date">{days[dateTime.getDay()]} {dateTime.getDate()}.{dateTime.getMonth()}.{dateTime.getFullYear()}</div>
-            <table className="weather-info-table">
+            <Table striped bordered condensed hover>
                 <thead>
                     <th></th>
                     <th>City</th>
@@ -34,7 +35,7 @@ const WeatherRankingPerDay = ({date, weatherInfo}) => {
                 <tbody>
                     {renderRows}
                 </tbody>
-            </table>
+            </Table>
         </div>
     )
 }
