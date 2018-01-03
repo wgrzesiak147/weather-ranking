@@ -41,6 +41,13 @@
   margin: auto;
 }
 
+.weather-info-block-small {
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 50%;
+  font-size: 50%;
+}
+
 .weather-info-table {
   border: 1px solid black;
   text-align: left;
@@ -53,6 +60,13 @@
 .weather-info__conditions-high {
   color: green
 }
+
 .weather-info__icon {
  width: 50px;
+ min-width: 40px; 
+}
+
+.weather-info__icon-small {
+  padding: 2px;
+  height: 30px;
 }

@@ -54,12 +54,11 @@
                     "sunriseTime": 1509967519,
                     "sunsetTime": 1510003982,
                     "moonPhase": 0.59,
-                    "precipIntensity": 0.0088,
-                    "precipIntensityMax": 0.0725,
+                    "precipIntensityMax": 0.0,
                     "precipIntensityMaxTime": 1510002000,
                     "precipProbability": 0.73,
                     "precipType": "rain",
-                    "temperatureHigh": 0,
+                    "temperatureHigh": 22,
                     "temperatureHighTime": 1509994800,
                     "temperatureLow": 41.28,
                     "temperatureLowTime": 1510056000,
@@ -70,11 +69,11 @@
                     "dewPoint": 57.66,
                     "humidity": 0.86,
                     "pressure": 1012.93,
-                    "windSpeed": 3.22,
+                    "windSpeed": 0,
                     "windGust": 26.32,
                     "windGustTime": 1510023600,
                     "windBearing": 270,
-                    "cloudCover": 0.8,
+                    "cloudCover": 1,
                     "visibility": 10,
                     "temperatureMin": 52.08,
                     "temperatureMinTime": 1510027200,
@@ -85,7 +84,7 @@
                     "apparentTemperatureMax": 66.53,
                     "apparentTemperatureMaxTime": 1509994800,
                     "dateTime": {
-                        "_d": "2017.01.02"
+                        "_d": "2017.02.02"
                     }
                 }
             ]
