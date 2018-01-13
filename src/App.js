@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import logo from './sun.png';
-import './App.css';
+import './styles/App.css';
 import './bootstrap-3.3.7-dist/css/bootstrap.min.css'
 import {Provider} from 'react-redux'
 import MainPage from './components/MainPage'
